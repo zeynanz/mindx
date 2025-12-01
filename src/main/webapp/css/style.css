@@ -1,0 +1,534 @@
+/* =========================
+   MindX - Unified stylesheet
+   Covers: index (landing), header/topbar, login, register, forgot-password,
+   profile, mood, analysis, and other common components
+   ========================= */
+
+/* Reset + base */
+* { box-sizing: border-box; }
+html, body { height: 100%; }
+body { margin:0; font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial; color:#213044; background:#f4f7fb; -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale; }
+a { color: #2a6fb8; text-decoration:none; }
+a:hover { text-decoration:underline; }
+
+.container { max-width:1100px; margin:28px auto; padding:0 16px; }
+.small-container { max-width:900px; margin:40px auto; padding:0 16px; }
+
+/* =========================
+   Page grid (kept for internal pages)
+   ========================= */
+.page-grid { display:grid; grid-template-columns: 360px 1fr; gap:28px; align-items:start; }
+
+/* Left panel */
+.left-panel .title { color:#7b1433; font-size:22px; margin:0 0 8px; font-weight:700; }
+.left-panel .small { margin-top:18px; font-size:18px; }
+.left-panel .lead { color:#6a6f76; line-height:1.5; margin-bottom:14px; }
+
+/* =========================
+   Hero (main banner area) - generic card used in some pages
+   ========================= */
+.card-hero {
+  display:flex;
+  gap:28px;
+  align-items:center;
+  background:linear-gradient(180deg,#2f5fb9,#193a78);
+  border-radius:12px;
+  padding:28px;
+  color:white;
+  box-shadow: 0 8px 28px rgba(20,50,100,0.12);
+}
+
+/* Centered large hero variant (used on index and login preview) */
+.hero-large { max-width:1000px; margin:36px auto; padding:36px; }
+
+/* hero left area / logo */
+.hero-left { text-align:center; width:280px; }
+.hero-logo { width:72px; height:72px; object-fit:contain; margin-bottom:8px; }
+.hero-logo-big { width:130px; height:auto; margin-bottom:12px; display:inline-block; }
+.hero-welcome { font-weight:700; margin-top:8px; font-size:18px; opacity:0.98; color:#fff; }
+
+/* hero card form (white card on the right) */
+.hero-card {
+  background: rgba(255,255,255,0.98);
+  color:#243046;
+  border-radius:12px;
+  padding:20px;
+  width:420px;
+  box-shadow: 0 8px 20px rgba(10,20,40,0.06);
+}
+.hero-card h2 { margin:0 0 10px; text-align:center; color:#213044; }
+
+/* larger hero card variant */
+.hero-card-large { width:520px; padding:28px; border-radius:14px; }
+
+/* form helpers */
+.form-compact .input-wrap { margin-bottom:12px; }
+.input { width:100%; padding:10px 12px; border-radius:24px; border:1px solid #e1e6ef; background:white; font-size:14px; transition: box-shadow .18s, border-color .18s; }
+.input:focus { outline:none; box-shadow:0 0 0 6px rgba(58,111,191,0.10); border-color:#3a6fbf; }
+
+.large-input { padding:14px 16px !important; font-size:16px; border-radius:28px !important; }
+
+.row-between { display:flex; justify-content:space-between; align-items:center; }
+.small { font-size:13px; }
+.muted { color:#667085; }
+
+/* =========================
+   Buttons
+   ========================= */
+.btn { display:inline-block; padding:8px 16px; border-radius:999px; border:none; cursor:pointer; background:#eff5ff; color:#213044; font-weight:600; transition: transform .12s ease, box-shadow .12s ease; text-decoration:none; text-align:center; }
+.btn:hover { transform: translateY(-2px); }
+.btn.primary { background:#3a6fbf; color:white; box-shadow:0 6px 14px rgba(58,111,191,0.18); }
+.btn.outline { background:transparent; border:1px solid #d6dbe4; color:#213044; }
+.btn-large { padding:12px 22px !important; font-size:16px; border-radius:30px !important; }
+
+/* disabled button */
+.btn.disabled { background: #cbd5e1; color: #475569; pointer-events: none; box-shadow:none; transform:none; }
+
+/* =========================
+   Mini cards (used in index & other pages)
+   ========================= */
+.cards-row { display:flex; gap:12px; margin-top:18px; }
+.mini-card { flex:1; background:white; border-radius:8px; padding:12px; box-shadow:0 6px 12px rgba(20,40,80,0.04); color:#213044; text-decoration:none; }
+.mini-card:hover { box-shadow:0 10px 20px rgba(20,40,80,0.08); transform: translateY(-3px); }
+.mc-title { font-weight:700; margin-bottom:6px; }
+.mc-body { color:#6b7280; font-size:14px; }
+
+/* =========================
+   Center wrap (for login and mood pages)
+   ========================= */
+.center-wrap { display:flex; justify-content:center; padding:40px 16px; }
+
+/* login hero default */
+.login-hero { display:flex; gap:28px; align-items:center; max-width:980px; width:100%; }
+.hero-side { width:44%; text-align:center; color:#213044; }
+.hero-logo-lg { width:90px; height:90px; object-fit:contain; }
+.hero-welcome { font-size:18px; margin-top:10px; color:#0c294a; font-weight:700; }
+
+/* auth card (used by individual login preview) */
+.auth-card { width:52%; background:white; padding:22px; border-radius:10px; box-shadow:0 8px 30px rgba(10,30,60,0.06); }
+.auth-title { margin:0 0 8px; text-align:center; color:#213044; }
+.auth-form .label { display:block; margin:8px 0 6px; font-weight:700; font-size:13px; }
+.auth-form .input { border-radius:8px; padding:10px; }
+
+/* alerts */
+.alert { padding:10px 12px; border-radius:8px; margin-bottom:12px; font-weight:600; }
+.alert.error { background:#ffecec; color:#b92b2b; border:1px solid #f2c6c6; }
+
+/* =========================
+   Profile card
+   ========================= */
+.profile-card { display:flex; gap:24px; background:white; padding:20px; border-radius:12px; box-shadow:0 10px 30px rgba(20,40,80,0.06); align-items:center; }
+.avatar { width:120px; height:120px; border-radius:999px; overflow:hidden; border:6px solid #eff5ff; display:flex; align-items:center; justify-content:center; background:#fff; }
+.avatar img { width:100%; height:100%; object-fit:cover; }
+.profile-left .name { font-weight:800; margin-top:12px; }
+.profile-right h3 { margin-top:0; }
+.profile-grid { display:grid; grid-template-columns:160px 1fr; gap:8px 16px; color:#344054; }
+.actions-row { margin-top:16px; display:flex; gap:10px; }
+
+/* =========================
+   Mood panel
+   ========================= */
+.mood-panel { width:760px; max-width:100%; background:white; padding:22px; border-radius:12px; box-shadow:0 10px 30px rgba(20,40,80,0.06); }
+.mood-input { width:100%; min-height:160px; border-radius:10px; border:1px solid #e6eef8; padding:12px; font-size:14px; resize:vertical; }
+.mood-panel .small { color:#9aa2af; }
+
+/* =========================
+   Analysis card
+   ========================= */
+.analysis-card { background:white; padding:22px; border-radius:12px; box-shadow:0 8px 28px rgba(10,30,60,0.06); }
+.analysis-box { border-radius:8px; border:1px solid #dbe7ff; padding:18px; position:relative; background:#fbfdff; min-height:120px; }
+.stress-bubble { position:absolute; right:12px; top:12px; background:#fff; border-radius:999px; padding:6px 10px; border:1px solid #e6eef8; font-weight:700; color:#2a6fbf; }
+
+/* small helpers */
+.center { text-align:center; }
+.muted { color:#6b7280; }
+
+/* subtle page-level container center for hero form */
+.hero-center-wrap { display:flex; justify-content:center; align-items:center; padding:28px 16px; }
+
+/* =========================
+   INDEX / LANDING PAGE (Blue background + 8-module grid)
+   ========================= */
+.index-bg {
+  background: linear-gradient(180deg, #164a9c 0%, #2e6dd6 70%);
+  min-height: 100vh;
+  padding: 40px 0 80px 0;
+  color: white;
+}
+
+/* center container overrides inside the blue hero */
+.index-bg .container { max-width:1200px; margin:0 auto; padding:0 20px; }
+
+/* HERO / intro */
+.system-hero {
+  text-align: center;
+  margin-bottom: 28px;
+  padding: 6px 12px;
+}
+.system-title {
+  font-size: 38px;
+  font-weight: 800;
+  margin-bottom: 8px;
+  color: #fff;
+}
+.system-tagline {
+  font-size: 16px;
+  max-width: 900px;
+  margin: 0 auto;
+  opacity: 0.95;
+  color: rgba(255,255,255,0.95);
+}
+
+/* overview box for intro and module grid wrapper */
+.overview-section {
+  background: rgba(255,255,255,0.12);
+  border-radius: 16px;
+  padding: 20px;
+  margin-top: 12px;
+}
+.overview-title {
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 8px;
+  color: #fff;
+}
+.overview-desc {
+  opacity: 0.95;
+  margin-bottom: 18px;
+  color: rgba(255,255,255,0.95);
+}
+
+/* module grid */
+.module-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+}
+.module-card {
+  background: white;
+  color: #1c2a3a;
+  padding: 16px;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+  display: flex;
+  flex-direction: column;
+  min-height: 160px;
+}
+.module-card h3 { margin: 0 0 8px; font-size: 18px; font-weight: 700; }
+.module-card p { flex: 1; font-size: 14px; color: #475569; line-height:1.45; }
+.module-card .btn { margin-top: 10px; align-self: flex-start; }
+
+/* reduce shadow/brightness on mobile inside index */
+.index-bg .card, .index-bg .module-card { box-shadow: 0 8px 20px rgba(0,0,0,0.12); }
+
+/* footer note in index */
+.index-footer { margin-top:16px; padding:12px 6px; color: rgba(255,255,255,0.85); text-align:center; }
+
+/* =========================
+   Responsive for index + pages
+   ========================= */
+@media (max-width:1200px) {
+  .module-grid { grid-template-columns: repeat(3, 1fr); }
+}
+@media (max-width:1000px) {
+  .module-grid { grid-template-columns: repeat(2, 1fr); }
+  .container { padding:0 14px; }
+}
+@media (max-width:700px) {
+  .module-grid { grid-template-columns: 1fr; }
+  .system-title { font-size: 28px; }
+  .hero-left { width:100%; text-align:center; }
+  .hero-card-large { width:100%; }
+}
+
+/* =========================
+   small utility spacing helpers
+   ========================= */
+.mt-12 { margin-top:12px; }
+.mt-20 { margin-top:20px; }
+
+/* =========================
+   Accessibility / focus states
+   ========================= */
+.btn:focus, .input:focus { outline: 3px solid rgba(58,111,191,0.12); outline-offset: 2px; }
+
+/* =========================
+   TOP NAV & LANDING HERO additions
+   (merged in here)
+   ========================= */
+
+/* ---------- Top navigation (simple, Apple-like) ---------- */
+.topbar {
+  background: #ffffff;
+  border-bottom: 1px solid rgba(20,30,50,0.06);
+  position: sticky;
+  top: 0;
+  z-index: 40;
+  box-shadow: 0 1px 0 rgba(0,0,0,0.02);
+}
+
+.topbar-inner {
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  padding:10px 8px;
+}
+
+.brand .brand-link {
+  font-weight:800;
+  color:#163b72;
+  font-size:18px;
+  text-decoration:none;
+  padding-right:10px;
+}
+
+/* nav links (center-left) */
+.nav-links {
+  list-style:none;
+  display:flex;
+  gap:14px;
+  margin:0;
+  padding:0;
+  align-items:center;
+}
+.nav-links li a {
+  color:#374151;
+  font-weight:500;
+  font-size:14px;
+  padding:8px 6px;
+}
+.nav-links li a:hover {
+  color:#0e57b7;
+}
+
+/* right-side actions */
+.top-actions { display:flex; gap:12px; align-items:center; }
+.top-link { color:#374151; font-weight:600; text-decoration:none; font-size:14px; padding:8px 6px; }
+.top-link:hover { color:#0e57b7; }
+
+/* responsive: collapse nav into simple overflow on small screens */
+@media (max-width:900px) {
+  .nav-links { display:none; }
+  .brand-link { font-size:16px; }
+}
+
+/* ---------- Landing hero (simple blue background area) ---------- */
+.landing-hero {
+  background: linear-gradient(180deg,#1f5bc7 0%, #2f74d9 60%);
+  color: white;
+  padding: 40px 0;
+}
+
+.hero-inner {
+  display:flex;
+  gap:28px;
+  align-items:center;
+  justify-content:space-between;
+  padding: 18px 0;
+}
+
+.hero-copy { max-width:680px; }
+.hero-copy h1 { margin:0 0 10px; font-size:36px; font-weight:800; color:#fff; }
+.hero-lead { margin:0 0 18px; font-size:16px; color:rgba(255,255,255,0.95); line-height:1.6; }
+
+.hero-logo-large { width:160px; height:auto; filter: drop-shadow(0 10px 20px rgba(0,0,0,0.12)); }
+
+/* CTA spacing */
+.hero-cta .btn { margin-right:8px; }
+
+/* ---------- Content section (white background, simple typographic) ---------- */
+.content-section {
+  background: #fff;
+  border-radius: 10px;
+  padding: 28px;
+  margin: 24px auto;
+  box-shadow: 0 10px 30px rgba(20,40,80,0.06);
+  color: #1f2937;
+}
+
+.content-section h2 { margin-top:0; font-size:22px; color:#0f1724; }
+.content-section p { color:#334155; line-height:1.6; margin-bottom:12px; }
+.content-section h3 { margin-top:18px; font-size:18px; color:#0f1724; }
+.content-section ul li, .content-section ol li { margin-bottom:8px; color:#334155; }
+
+/* smaller muted text */
+.content-section .muted { color:#475569; font-size:13px; }
+
+/* responsive */
+@media (max-width:900px) {
+  .hero-inner { flex-direction:column-reverse; text-align:center; }
+  .hero-copy, .hero-visual { width:100%; }
+  .hero-logo-large { margin: 16px auto 0; }
+  .content-section { padding: 18px; }
+}
+
+/* ===== Login page refined styling (match mockup) ===== */
+
+.login-hero {
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:40px;
+  width:100%;
+  max-width:980px;
+  margin: 20px auto;
+  padding: 36px;
+  border-radius:14px;
+  /* create big left gradient block and lighter right area */
+  background: linear-gradient(135deg, #2e5fc6 0%, #2a3f9a 100%);
+  box-shadow: 0 18px 50px rgba(15,30,70,0.18);
+  color: #ffffff;
+}
+
+/* left side with logo and welcome text */
+.hero-side {
+  width:44%;
+  padding:20px 16px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  gap:12px;
+  min-height:220px;
+}
+
+.hero-side .hero-logo-lg {
+  width:96px;
+  height:96px;
+  object-fit:contain;
+  border-radius:12px;
+  background: rgba(255,255,255,0.06);
+  padding:12px;
+  box-shadow: 0 8px 22px rgba(0,0,0,0.12);
+}
+
+.hero-side .hero-welcome {
+  color: rgba(255,255,255,0.95);
+  font-weight:700;
+  font-size:18px;
+  text-align:center;
+}
+
+/* sign-in card on the right — frosted light card */
+.auth-card {
+  width:48%;
+  max-width:520px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.98), rgba(250,252,255,0.96));
+  border-radius:12px;
+  padding:28px 26px;
+  box-shadow: 0 20px 40px rgba(24,40,80,0.08);
+  border: 1px solid rgba(28,46,82,0.04);
+  color:#123047;
+}
+
+/* Title */
+.auth-title {
+  font-size:20px;
+  font-weight:700;
+  color:#0f2946;
+  margin-bottom:12px;
+  text-align:center;
+}
+
+/* hide explicit label text to match mockup which uses placeholders */
+.auth-form .label { display:none; }
+
+/* pill style inputs with subtle inner shadow */
+.auth-form .input {
+  display:block;
+  width:100%;
+  padding:12px 14px;
+  border-radius:24px;
+  border:1px solid rgba(30,60,100,0.06);
+  background:#f2f6fb;
+  color:#213044;
+  font-size:14px;
+  margin-bottom:12px;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.6), 0 2px 8px rgba(10,30,60,0.03);
+  transition: box-shadow .15s ease, transform .08s ease;
+}
+
+/* placeholder color */
+.auth-form .input::placeholder { color:#a9b5c9; }
+
+/* focus */
+.auth-form .input:focus {
+  outline:none;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 18px rgba(42,111,191,0.12), inset 0 1px 0 rgba(255,255,255,0.6);
+  border-color: rgba(58,111,191,0.35);
+}
+
+/* row between (remember / forgot) */
+.row-between.small.muted {
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:8px;
+  font-size:13px;
+  color:#6b7788;
+  margin-top:6px;
+  margin-bottom:14px;
+}
+
+/* primary button — rounded pill */
+.auth-card .btn.primary {
+  display:inline-block;
+  padding:10px 28px;
+  border-radius:999px;
+  background: linear-gradient(180deg,#3a6fbf,#265bb0);
+  box-shadow: 0 10px 22px rgba(58,111,191,0.22);
+  color: #fff;
+  font-weight:700;
+  border: none;
+  margin: 8px auto 0;
+  cursor:pointer;
+}
+
+/* center the button */
+.auth-card .center { text-align:center; }
+
+/* error alert style (red small text above form) */
+.alert.error {
+  background:#fff5f6;
+  color:#9b2b2b;
+  border:1px solid rgba(219,66,66,0.12);
+  padding:8px 12px;
+  border-radius:8px;
+  margin-bottom:12px;
+  font-weight:600;
+  text-align:center;
+}
+
+/* make smaller screens stack nicely */
+@media (max-width:900px) {
+  .login-hero { flex-direction:column; padding:20px; }
+  .hero-side, .auth-card { width:100%; }
+  .auth-card { padding:18px; }
+  .hero-side { order:2; }
+  .auth-card { order:1; }
+}
+
+/* Forgot password tweaks + register outline button */
+.btn.outline {
+  background: transparent;
+  border: 1px solid rgba(34,60,90,0.08);
+  color: #123047;
+  box-shadow: none;
+}
+.btn.outline:hover { background: rgba(34,60,90,0.03); }
+
+/* small tweaks for auth-card links */
+.auth-card .top-link { color: #265bb0; font-weight:600; }
+.auth-card .muted { color: #6b7288; }
+
+/* responsive adjustments */
+@media (max-width:900px) {
+  .nav-links { display:none; }
+  .brand-link { font-size:16px; }
+  .module-grid { grid-template-columns: 1fr; }
+  .hero-inner { flex-direction:column-reverse; text-align:center; }
+}
+
+/* end of stylesheet */
