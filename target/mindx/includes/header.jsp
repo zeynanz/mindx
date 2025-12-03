@@ -20,6 +20,7 @@
         <li><a href="${pageContext.request.contextPath}/jsp/mood_tracker.jsp">Mood Tracker</a></li>
         <li><a href="${pageContext.request.contextPath}/jsp/resources.jsp">Resources</a></li>
         <li><a href="${pageContext.request.contextPath}/jsp/sos.jsp">Emergency SOS</a></li>
+        <li><a href="${pageContext.request.contextPath}/jsp/quote.jsp">Quote</a></li>
         <li><a href="${pageContext.request.contextPath}/jsp/forum.jsp">Forum</a></li>
         <li><a href="${pageContext.request.contextPath}/jsp/appointment.jsp">Appointments</a></li>
       </ul>

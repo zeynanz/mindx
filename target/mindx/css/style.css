@@ -11,6 +11,82 @@ body { margin:0; font-family: Inter, system-ui, -apple-system, "Segoe UI", Robot
 a { color: #2a6fb8; text-decoration:none; }
 a:hover { text-decoration:underline; }
 
+.quote-container {
+    text-align: center;
+    margin: 20px;
+}
+
+.quote-text {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.quote-button {
+    background-color: #4CAF50;
+    color: white;
+    font-size: 16px;
+    padding: 10px 35px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+/* SOS Container */
+.sos-container {
+    text-align: center;
+    width: 100%;
+    max-width: 400px;
+    margin-top: 40px;
+}
+
+/* SOS Circle Button */
+.sos-button {
+    background-color: #FF3B3B;
+    color: white;
+    font-size: 45px;
+    font-weight: bold;
+    width: 180px;
+    height: 180px;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    margin-bottom: 25px;
+    box-shadow: 0px 10px 20px rgba(255,0,0,0.3);
+    transition: 0.2s ease;
+}
+
+.sos-button:active {
+    transform: scale(0.95);
+}
+
+/* Emergency Alert Text */
+.alert-sent {
+    color: #4CAF50;
+    font-size: 20px;
+    margin-bottom: 30px;
+}
+
+/* Back button */
+.back-btn {
+    background-color: #d2d2d2;
+    padding: 10px 35px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+/* Back button */
+.continue-btn {
+    background-color: #d2d2d2;
+    padding: 10px 35px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
 .container { max-width:1100px; margin:28px auto; padding:0 16px; }
 .small-container { max-width:900px; margin:40px auto; padding:0 16px; }
 

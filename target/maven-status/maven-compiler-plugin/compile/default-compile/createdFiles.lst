@@ -1,2 +1,2 @@
-com\mindx\model\User.class
-com\mindx\servlets\RegisterServlet.class
+com/mindx/servlets/RegisterServlet.class
+com/mindx/model/User.class
